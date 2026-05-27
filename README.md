@@ -24,7 +24,7 @@ A team project management platform built with the MERN stack. Manage workspaces,
 ### Prerequisites
 
 - Node.js v18+
-- A [MongoDB Atlas](https://cloud.mongodb.com) cluster (free tier works)
+- A [MongoDB Atlas](https://cloud.mongodb.com) cluster
 
 ### 1. Clone the repo
 
@@ -91,38 +91,6 @@ cd client && npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deployment (Railway)
-
-### Backend service
-
-- Root directory: `backend`
-- Build command: `npm run build`
-- Start command: `npm start`
-
-Environment variables to set:
-
-```env
-NODE_ENV=production
-PORT=8000
-MONGO_URI=<your atlas uri>
-SESSION_SECRET=<random secret>
-SESSION_EXPIRES_IN=1d
-FRONTEND_ORIGIN=https://<your-frontend-domain>
-```
-
-### Frontend service
-
-- Root directory: `client`
-- Build command: `npm run build`
-- Start command: `npm start`
-
-Environment variables to set:
-
-```env
-VITE_API_BASE_URL=https://<your-backend-domain>/api
-```
-
-> After both services are deployed, update `FRONTEND_ORIGIN` in the backend service to match the frontend's Railway domain.
 
 ## Project Structure
 
