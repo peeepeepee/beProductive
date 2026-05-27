@@ -95,7 +95,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Project Structure
 
 ```
-team-task-manager/
+beProductive/
 ├── backend/
 │   ├── src/
 │   │   ├── config/        # App, DB, session, passport config
