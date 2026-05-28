@@ -11,6 +11,7 @@ import { asyncHandler } from "./middlewares/asyncHandler.middleware";
 import { BadRequestException } from "./utils/appError";
 import { ErrorCodeEnum } from "./enums/error-code.enum";
 
+import mongoose from "mongoose";
 import "./config/passport.config";
 import passport from "passport";
 import authRoutes from "./routes/auth.route";
@@ -35,7 +36,11 @@ app.use(
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: config.MONGO_URI }),
+    store: MongoStore.create({
+      clientPromise: mongoose.connection
+        .asPromise()
+        .then((conn) => conn.getClient()),
+    }),
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
       secure: config.NODE_ENV === "production",
